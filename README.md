@@ -2,7 +2,9 @@ playbook for perfSONAR deployment and config
 
 **Quick Start**:
 
-You must have an account on each of the MiServers and be in the not2fa group
+Here is the list of ports that perfSONAR requres:
+
+https://docs.perfsonar.net/manage_security.html
 
 Clone the playbook:
 
@@ -42,3 +44,44 @@ ansible-playbook \
 ```
 
 **Management Commands:**
+
+Campus
+
+```
+pscheduler troubleshoot perfsonar-bin-arbl.umnet.umich.edu
+
+pscheduler task clock \
+  --source perfsonar-bin-arbl.umnet.umich.edu \
+  --dest localhost
+
+pscheduler task latency \
+  --source perfsonar-bin-arbl.umnet.umich.edu \
+  --dest localhost
+
+pscheduler task latency \
+  --dest perfsonar-bin-arbl.umnet.umich.edu \
+  --source localhost
+
+```
+
+Singapore
+
+```
+
+pscheduler task latency \
+  --source owamp-ps.singaren.net.sg \
+  --dest localhost
+
+pscheduler task latency \
+  --dest owamp-ps.singaren.net.sg \
+  --source localhost
+
+pscheduler task latency \
+  --source perf-sin.sinet.ad.jp \
+  --dest localhost
+
+pscheduler task latency \
+  --dest perf-sin.sinet.ad.jp \
+  --source localhost
+
+```
